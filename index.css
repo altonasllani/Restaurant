@@ -1,56 +1,59 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    background-color: #f4f4f9;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
 }
-
 
 .header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 120px;
+  background-image: url('bg.jpg'); /* Vendos foton e njëjtë si në hero */
+  background-size: cover; /* Bën foton të mbulojë të gjithë header-in */
+  background-position: center; /* Qendron foton në qendër */
+  background-color: rgba(0, 0, 0, 0.7); /* Ngjyrë gjysmë-transparent */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
-.header .logo a {
-    color: #ff6b6b;
-    font-size: 1.8rem;
-    font-weight: bold;
-    text-decoration: none;
+.header nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+}
+header nav a:hover{
+  color: aqua;
 }
 
-.navbar a {
-    color: #fff;
-    margin-left: 1.5rem;
-    text-decoration: none;
-    transition: color 0.3s;
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('r1.jpg'); /* Overlay i zi i tejdukshëm */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 20px; /* Shtimi i hapësirave anësore për tekst */
+
+}
+.hero h1 {
+  font-size: 4rem; /* Madhësi më e madhe për titullin */
+  font-weight: bold; /* Shtimi i trashësisë për më shumë theks */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6); /* Hije e theksuar për tekstin */
+  line-height: 1.2; /* Hapësirë më e madhe midis rreshtave */
+  margin: 0;
+  padding: 0 10px; /* Hapësira e brendshme e vogël */
 }
 
-.navbar a:hover {
-    color: #ff6b6b;
+
+.content {
+  padding: 20px;
+  background-color: #222;
+  color: #fff;
+  min-height: 100vh;
 }
-
-/* Home Section */
-.home {
-    
-    height: 80vh;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-
