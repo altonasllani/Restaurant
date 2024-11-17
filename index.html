@@ -3,24 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to the Best Restaurant. Discover freshly crafted meals made with love.">
     <title>Best Restaurant</title>
     <link rel="stylesheet" href="index.css">
     <script defer src="script.js"></script>
 </head>
 <body>
     <header class="header">
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Menu</a>
-        <a href="#">Reservations</a>
-        <a href="#">Login</a>
-      </nav>
+        <!-- Logo ne anen e majte -->
+        <div class="logo">
+            <img src="logo.png" alt="Restaurant Logo">
+        </div>
+
+        <!-- Navigacioni ne qender -->
+        <nav class="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Menu</a></li>
+                <li><a href="index.html">Reservations</a></li>
+            </ul>
+        </nav>
+
+        <!-- Login ne anen e djathte si buton -->
+        <a href="#" class="login-button">Login</a>
     </header>
+
     <section class="hero">
-      <h1>Welcome to Our Restaurant</h1>
+      <div class="hero-content">
+        <h1>Welcome to the Heart of Flavors</h1>
+        <p>Discover freshly crafted meals made with love.</p>
+        <p>Where every bite tells a story of taste and tradition.</p>
+        <a href="#menu" class="order-button">Order Now</a>
+      </div>
     </section>
+    
+
     <section class="content">
-      <!-- Your restaurant content here -->
+        <!-- Permbajtja kryesore -->
     </section>
-  </body>
-  </html>
+
+    <footer>
+        <section class="footer">
+            <div class="box-container">
+                <div class="box">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="menu.html">Products</a></li>
+                        <li><a href="#review">Review</a></li>
+                        <li><a href="login.html">Login/Register</a></li>
+                    </ul>
+                </div>
+                <div class="box">
+                    <h3>Locations</h3>
+                    <ol>
+                        <li><a href="#">Kosovo</a></li>
+                        <li><a href="#">Albania</a></li>
+                        <li><a href="#">Germany</a></li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><a href="#">043 123 456</a></li>
+                        <li><a href="#">aa68723@ubt-uni.net</a></li>
+                        <li><a href="#">az68671@ubt-uni.net</a></li>
+                        <li><a href="#">Prishtine</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </footer>
+</body>
+</html>
