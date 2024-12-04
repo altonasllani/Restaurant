@@ -1,0 +1,162 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color:#F4F3E7;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #F4F3E7;;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo img {
+    height: 80px; 
+  }
+  .nav {
+    text-align: center;
+  }
+  
+  .nav ul {
+    display: inline-flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav li {
+    margin: 0 20px;
+  }
+  
+  .nav a {
+    color: #0E150E;
+    text-decoration: none;
+    font-size: 19px;
+  }
+  
+  .nav a:hover {
+    color: #1c542d;
+    transition: color 0.3s ease-in-out;
+  }
+  .login-button {
+    padding: 10px 20px;
+    background-color: #106e10;
+    color: yellow;;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 100px; 
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #1c542d;
+    transform: scale(1.04);
+  }
+ 
+  .hero {
+    position: relative;
+    color:#106e10;
+    display: flex;
+    align-items: flex-end;
+    padding-top: 150px;
+    padding-left: 500px;
+  }
+  
+  .hero-content {
+    max-width: 500px; /* Zgjerimi i gjersise per tekst me te gjate */
+  }
+  
+  .hero p {
+    font-size: 2rem; /* Tekst me i madh */
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
+  }
+  /* Footer */
+footer {
+    background-color: #D8E5D6;
+    color: #0E150E;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer .box-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .footer .box {
+    flex: 1 1 250px;
+    padding: 20px;
+  }
+  
+  .footer h3 {
+    font-size: 20px;
+    color: #ff6347;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+  }
+  
+  .footer ul, .footer ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer li {
+    margin: 5px 0;
+  }
+  
+  .footer a {
+    color: #0E150E;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: aqua;
+  }
+  
+  /* Per ekranet e vogla */
+  @media (max-width: 768px) {
+    .footer .box-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .nav li {
+      margin: 10px 0;
+    }
+  
+    .header {
+      flex-wrap: wrap;
+      height: auto;
+      padding: 10px 20px;
+    }
+  
+    .login-button {
+      margin-right: 10px; /* Pak me afer per ekranet e vogla */
+    }
+  }
+
