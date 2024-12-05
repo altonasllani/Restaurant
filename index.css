@@ -191,7 +191,41 @@ body {
   height: auto;
   border-radius: 10px;
 }
+/*app section*/
+.flex{
+  display: flex;
+  background-color: #E8DCC6;
+}
 
+.texti {
+  flex: 1; /* Seksioni i tekstit zë gjysmën e ekranit */
+  height: 100vh;
+  position: relative;
+  color: #000000;
+  display: flex;
+  align-items: flex-start; /* Per t'u shfaqur ne fillim te seksionit */
+  justify-content: flex-start; /* Per t'u shfaqur ne krahun e majte */
+  padding: 10px; /* Hapesire me e madhe nga skajet */
+}
+.subtitle {
+  font-size: 12px; /* Madhësia e vogël për tekstin ndihmës */
+  color: #6e6e6e; /* Një ngjyrë gri e lehtë për tekstin ndihmës */
+  text-transform: uppercase; /* Të gjitha shkronjat janë të mëdha */
+  letter-spacing: 1px; /* Hapësirë midis shkronjave */
+  margin-left: 30px;
+  margin-top: 40px;
+  margin-bottom: 40px; /* Hapësirë poshtë subtitullit */
+}
+.texti h2 {
+  font-size: 4em; /* Madhësia kryesore e titullit */
+  margin:  20px ; /* Hapësirë poshtë titullit */
+  font-family: Garamond, serif;
+}
+.flex p{
+  font-size: 1.5rem; /* Permase me e madhe */
+  margin: 20px ;
+  line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
+}
 
 
 /* Footer */
