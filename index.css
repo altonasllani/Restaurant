@@ -226,7 +226,17 @@ body {
   margin: 20px ;
   line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
 }
-
+.video-section {
+  flex: 1; /* Seksioni i videos zë gjysmën tjetër të ekranit */
+  background-color: #E8DCC6; /* Ngjyrë gri për sfondin e videos */
+  overflow: hidden; /* Siguron që videoja të mos dalë jashtë kufijve */
+  display: flex; /* Videoja qendrohet brenda */
+}
+.video-section video {
+  width: 100%; /* Video mbush gjithë gjerësinë e seksionit */
+  height: 100%; /* Video mbush gjithë lartësinë e seksionit */
+  object-fit: cover; /* Video mbulon seksionin pa shtrembërime */
+}
 
 /* Footer */
 footer {
