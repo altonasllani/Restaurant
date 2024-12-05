@@ -11,7 +11,7 @@ body {
   top: 0;
   width: 100%;
   height: 100px;
-  background-color: #F4F3E7;;
+  background-color: #F4F3E7;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,7 +52,7 @@ body {
   transition: color 0.3s ease-in-out;
 }
 
-/* Login si buton ne te djathte me hapesire */
+/* Login si buton ne te djathte */
 .login-button {
   padding: 10px 20px;
   background-color: #106e10;
@@ -119,17 +119,80 @@ body {
 }
 
 .order-button:hover {
-  background-color: #FFC300; /* Ndryshim i lehte ngjyre ne hover */
+  background-color: #f6d465; /* Ndryshim i lehte ngjyre ne hover */
   transform: scale(1.08); /* Zmadhim me i dukshem gjate hover-it */
 }
-
-/* Content */
-.content {
-  background-color: #F4F3E7;
-  color: #fff;
-  padding: 20px;
-  min-height: 100vh;
+/* App Section */
+.app {
+  display: flex;
+  background-color: #D8E5D6;
 }
+
+.text-section {
+  flex: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 40px;
+  color: #000;
+}
+
+.text-section h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Të gjitha shkronjat janë të mëdha */
+  font-family: Garamond, serif;
+  
+}
+
+.text-section p {
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+.stitle{
+  font-size: 12px; /* Madhësia e vogël për tekstin ndihmës */
+  color: #6e6e6e; /* Një ngjyrë gri e lehtë për tekstin ndihmës */
+  text-transform: uppercase; /* Të gjitha shkronjat janë të mëdha */
+  letter-spacing: 1px; /* Hapësirë midis shkronjave */
+  margin-top: 20px;
+  margin-bottom: 30px; /* Hapësirë poshtë subtitullit */
+}
+
+.btn {
+  align-self: flex-start; /* Vendosja në të majtë */
+  margin-top: 20px;
+}
+
+.underline-link {
+  font-size: 1.2rem;
+  color: #09140c;
+  text-decoration: none;
+  border-bottom: 2px solid #1c542d; /* Vijë poshtë */
+  padding-bottom: 2px;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.underline-link:hover {
+  color: #106e10;
+  border-color: #106e10;
+}
+
+.app-img {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.app-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
 
 /* Footer */
 footer {
