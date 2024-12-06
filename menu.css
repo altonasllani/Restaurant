@@ -178,9 +178,7 @@ body {
 
 }
   
-
-  /* Footer */
-.footer {
+footer {
   background-color: #D8E5D6;
   color: #0E150E;
   padding: 20px;
@@ -254,3 +252,4 @@ body {
     margin-right: 10px; /* Pak me afer per ekranet e vogla */
   }
 }
+ 
