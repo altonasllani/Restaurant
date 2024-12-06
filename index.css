@@ -238,6 +238,53 @@ body {
   object-fit: cover; /* Video mbulon seksionin pa shtrembërime */
 }
 
+/* Reviews-section */
+.testimonials {
+  padding: 50px 20px;
+  background-color: #F4F3E7;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-family: Garamond, serif;
+  font-size: 2.5rem;
+  font-weight:bolder;
+  color: #3c3c3c; /* Ngjyrë neutrale */
+  margin-bottom: 20px;
+}
+
+.testimonial-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.testimonial {
+  background-color: #E8DCC6;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.testimonial .rating {
+  color: #FFD700;
+}
+
+.testimonial .client-name {
+  font-style: italic;
+  color: #666;
+}
+.testimonial:hover {
+background-color: #D8E5D6;
+}
+
 /* Footer */
 footer {
   background-color: #D8E5D6;
