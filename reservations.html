@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="reservations.css">
 </head>
 <body>
+  <!-- Shigjeta për kthim prapa -->
+  <div id="back-arrow" tabindex="0">
+    &#8592; Back
+  </div>
 
   <!-- Seksioni për formen e rezervimit -->
   <section id="reservation">
@@ -45,5 +49,17 @@
     &copy; 2024 Restaurant. All Rights Reserved.
   </footer>
 
+  <!-- JavaScript për shigjetën e kthimit prapa -->
+  <script>
+    const backArrow = document.getElementById('back-arrow');
+    if (backArrow) {
+      backArrow.addEventListener('click', function () {
+        // Kthehet te faqja e mëparshme
+        window.history.back();
+      });
+    } else {
+      console.error('Shigjeta nuk u gjet në DOM!');
+    }
+  </script>
 </body>
 </html>

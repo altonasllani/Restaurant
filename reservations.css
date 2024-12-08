@@ -6,6 +6,29 @@ body {
   background-color: #f4f4f9; /* Ngjyre e lehte per te pasur nje pamje me te paster */
 }
 
+/* Styling per shigjetën "Back" */
+#back-arrow {
+  position: fixed;
+  top: 20px; /* Largësia nga lart */
+  left: 20px; /* Largësia nga e majta */
+  z-index: 100; /* Prioritet më të lartë */
+  background-color: #16579c;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+#back-arrow:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
 h2 {
   text-align: center;
   color: #333;
