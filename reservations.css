@@ -1,0 +1,101 @@
+/* Styling per trupin e faqes */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f9; /* Ngjyre e lehte per te pasur nje pamje me te paster */
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+/* Seksioni i formes */
+#reservation {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling per formen e rezervimit */
+.reservation-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.reservation-form label {
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reservation-form input,
+.reservation-form select,
+.reservation-form button {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.reservation-form input[type="date"],
+.reservation-form input[type="time"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.reservation-form button {
+  background-color: #007BFF;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.reservation-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Per Footerin */
+footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Per shfaqjen responsive */
+@media (max-width: 768px) {
+  #back-arrow {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .reservation-form {
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .reservation-form input,
+  .reservation-form select,
+  .reservation-form button {
+    padding: 10px;
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Reservation Form</title>
+  <link rel="stylesheet" href="reservations.css">
+</head>
+<body>
+
+  <!-- Seksioni për formen e rezervimit -->
+  <section id="reservation">
+    <h2>Reserve a Table</h2>
+    <p>Fill in the details below to reserve your spot at our restaurant.</p>
+    <form action="/submit-reservation" method="POST" class="reservation-form">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" pattern="[0-9]{9,}" placeholder="Your Phone Number" required>
+
+      <label for="date-time">Date and Time:</label>
+      <div class="date-time-container">
+        <input type="date" id="date" name="date" required>
+        <input type="time" id="time" name="time" required>
+      </div>
+
+      <label for="guests">Number of Guests:</label>
+      <input type="number" id="guests" name="guests" min="1" max="20" required>
+
+      <label for="table">Table Preference:</label>
+      <select id="table" name="table" required>
+        <option value="indoor">Indoor</option>
+        <option value="outdoor">Outdoor</option>
+        <option value="window">Window</option>
+        <option value="corner">Corner</option>
+      </select>
+
+      <button type="submit">Reserve Now</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2024 Restaurant. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
