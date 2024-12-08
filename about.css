@@ -128,6 +128,56 @@ h1, h2 {
     color: #555;
 }
 
+/* Core Values Section */
+.core-values {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #FFF;
+}
+
+.core-values h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.values-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.value-box {
+    max-width: 350px; /* Madhësia më e madhe e kuti */
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in-out; /* Efekti i kalimit me butësi */
+}
+
+.value-box img {
+    width: 250px; /* Madhësia e fotove */
+    height: 250px;
+    margin-bottom: 20px;
+    border-radius: 50%; /* Bëni fotot rrethore */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hije për fotot */
+    transition: transform 0.3s ease-in-out; /* Efekti i kalimit me butësi */
+}
+
+.value-box img:hover {
+    transform: scale(1.15); /* Efekti i rritjes për fotot kur kaloni kursorin */
+}
+
+.value-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #2E3D49;
+}
+
+.value-box p {
+    font-size: 1.1rem;
+    color: #666;
+}
 
 /* Footer Section */
 footer {
