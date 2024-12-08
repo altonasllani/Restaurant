@@ -2,52 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login & Register Form</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Login & Register</title>
+  <link rel="stylesheet" href="login.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/
+  boxicons.min.css' rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <div class="form-container">
+  <div class="wrapper">
+    <form action="">
       <!-- Login Form -->
-      <form id="loginForm">
-        <h2>Login</h2>
-        <div class="form-group">
-          <label for="loginEmail">Email</label>
-          <input type="email" id="loginEmail" placeholder="Enter your email" required>
-          <span class="error" id="loginEmailError"></span>
-        </div>
-        <div class="form-group">
-          <label for="loginPassword">Password</label>
-          <input type="password" id="loginPassword" placeholder="Enter your password" required>
-          <span class="error" id="loginPasswordError"></span>
-        </div>
-        <button type="submit">Login</button>
-      </form>
+        <h1>Login</h1>
+             <div class="input-box">
+                <input type="text" placeholder="username" required>
+             </div>
+             <div class="input-box">
+                <input type="password" 
+                placeholder="Password" required>  
+                <i class='bx bxs-lock-alt'></i> 
+             </div>
+             <div class="remember-forgot">
+                <label><input type="checkbox"> Remember me</label>
+                <a href="#">Forgot Password?</a>
+             </div>
+             
+             <button type="submit" class="btn">Login</button>
 
-      <!-- Register Form -->
-      <form id="registerForm">
-        <h2>Register</h2>
-        <div class="form-group">
-          <label for="registerUsername">Username</label>
-          <input type="text" id="registerUsername" placeholder="Enter your username" required>
-          <span class="error" id="registerUsernameError"></span>
-        </div>
-        <div class="form-group">
-          <label for="registerEmail">Email</label>
-          <input type="email" id="registerEmail" placeholder="Enter your email" required>
-          <span class="error" id="registerEmailError"></span>
-        </div>
-        <div class="form-group">
-          <label for="registerPassword">Password</label>
-          <input type="password" id="registerPassword" placeholder="Enter your password" required>
-          <span class="error" id="registerPasswordError"></span>
-        </div>
-        <button type="submit">Register</button>
-      </form>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+             <div class="register-link">
+                <p>Don't have an account? <a 
+                    href="#">Register</a></p>
+                </p>
+             </div>
+    </form>
 </body>
 </html>
