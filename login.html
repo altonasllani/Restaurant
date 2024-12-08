@@ -6,34 +6,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login & Register</title>
   <link rel="stylesheet" href="login.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/
-  boxicons.min.css' rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 </head>
 <body>
   <div class="wrapper">
-    <form action="">
-      <!-- Login Form -->
+    <!-- Login Form -->
+    <form class="form login-form" action="">
         <h1>Login</h1>
-             <div class="input-box">
-                <input type="text" placeholder="username" required>
-             </div>
-             <div class="input-box">
-                <input type="password" 
-                placeholder="Password" required>  
-                <i class='bx bxs-lock-alt'></i> 
-             </div>
-             <div class="remember-forgot">
-                <label><input type="checkbox"> Remember me</label>
-                <a href="#">Forgot Password?</a>
-             </div>
-             
-             <button type="submit" class="btn">Login</button>
-
-             <div class="register-link">
-                <p>Don't have an account? <a 
-                    href="#">Register</a></p>
-                </p>
-             </div>
+        <div class="input-box">
+          <input type="text" placeholder="Username" required>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" required>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="remember-forgot">
+          <label><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <div class="register-link">
+          <p>Don't have an account? <a href="#" id="switch-to-register">Register</a></p>
+        </div>
     </form>
+
+    <!-- Register Form -->
+    <form class="form register-form" action="" style="display: none;">
+        <h1>Register</h1>
+        <div class="input-box">
+          <input type="text" placeholder="Full Name" required>
+        </div>
+        <div class="input-box">
+          <input type="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Password" required>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="Confirm Password" required>
+          <i class='bx bxs-lock-alt'></i>
+        </div>
+        <button type="submit" class="btn">Register</button>
+        <div class="register-link">
+          <p>Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+        </div>
+    </form>
+  </div>
+
+  <script>
+    const loginForm = document.querySelector('.login-form');
+    const registerForm = document.querySelector('.register-form');
+    const switchToRegister = document.getElementById('switch-to-register');
+    const switchToLogin = document.getElementById('switch-to-login');
+
+    switchToRegister.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'block';
+    });
+
+    switchToLogin.addEventListener('click', (e) => {
+      e.preventDefault();
+      loginForm.style.display = 'block';
+      registerForm.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
