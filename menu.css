@@ -74,20 +74,17 @@ body {
  
 .hero{
   position: relative;
-  width: 100vw;
-  height: vh;
-  color: #106e10;
+  width: 100%;
+  color: #1c542d;
   display: flex;
   justify-content: center;
-  align-items: center;
   text-align: center;
-  padding-top: 150px;
+  padding: 150px 0 60px 0;
   background-color: white;
 }  
 .hero-content{
   content: "";
   width: 100%;
-  height: 100%;
   max-width: 500px;
   padding: 25px 0 25px 0;
 }
@@ -196,30 +193,6 @@ body {
   border-radius: 50%;
   padding: 5px;
   border: 2px solid orange;
-}
-
-
-/*responsive*/
-@media screen and (max-width: 768px){
-     #mobile_menu{
-      display: block;
-     }
-     #navbar u1{
-      display: none;
-     }
-     html{
-      font-size: 95%;
-     }
-     #menu_row{
-      flex-wrap: wrap;
-      padding: 0 10px 0 10px;
-     }  
-}
-@media screen and (max-width: 360px){
-     html{
-      font-size: 70%;
-     }
-
 }
   
 footer {
