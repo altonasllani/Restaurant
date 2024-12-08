@@ -11,109 +11,106 @@ body {
     background-color:#F4F3E7;
   }
   
-  .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #F4F3E7;;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-  
-  .logo img {
-    height: 80px; 
-  }
-  .nav {
-    text-align: center;
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;    
+  height: 100px;
+  background-color: #F4F3E7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
-  .nav ul {
-    display: inline-flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+.logo img {
+  height: 80px; 
+}
+.nav {
+  text-align: center;
+}
   
-  .nav li {
-    margin: 0 20px;
-  }
+.nav ul {
+  display: inline-flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
   
-  .nav a {
-    color: #0E150E;
-    text-decoration: none;
-    font-size: 19px;
-  }
+.nav li {
+  margin: 0 20px;
+}
   
-  .nav a:hover {
-    color: #1c542d;
-    transition: color 0.3s ease-in-out;
-  }
-  .login-button {
-    padding: 10px 20px;
-    background-color: #106e10;
-    color: yellow;;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 100px; 
-    transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-  }
+.nav a {
+  color: #0E150E;
+  text-decoration: none;
+  font-size: 19px;
+}
   
-  .login-button:hover {
-    background-color: #1c542d;
-    transform: scale(1.04);
-  }
+.nav a:hover {
+  color: #1c542d;
+  transition: color 0.3s ease-in-out;
+}
+.login-button {
+  padding: 10px 20px;
+  background-color: #106e10;
+  color: yellow;;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 100px; 
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+  
+.login-button:hover {
+  background-color: #1c542d;
+  transform: scale(1.04);
+}
  
-  .hero{
-    position: relative;
-    width: 100vw;
-    height: vh;
-    color: #106e10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 150px;
-
-    background-color: white;
-  }
-  
-  .hero-content{
-    content: "";
-    width: 100%;
-    height: 100%;
-    max-width: 500px;
-    padding: 25px 0 25px 0;
-  }
-
-
-    
-  .hero p {
-    font-size: 2.5rem; /* Tekst me i madh */
-    text-align: center;
-    font-weight: normal;
-    line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
-  }
+.hero{
+  position: relative;
+  width: 100vw;
+  height: vh;
+  color: #106e10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 150px;
+  background-color: white;
+}  
+.hero-content{
+  content: "";
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  padding: 25px 0 25px 0;
+}
+.hero p {
+  font-size: 2.5rem; /* Tekst me i madh */
+  text-align: center;
+  font-weight: normal;
+  line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
+  font-family: cursive;
+}
 
 /*menu section*/
 #menu{
   padding: 25px 0 25px 0;
   background-color: #E8DCC6;
 }
-#section{
+#section_menu{
   padding: 25px 0 25px 0;
   text-align: center;
   font-size: 2rem;
   font-family: verdana;
-  color: #1c542d;
+  color: white;
+  background-color: #1c542d;
 }
 #menu_row{
   display: flex;
@@ -155,7 +152,54 @@ body {
   margin: 5px;
 }
 
+/*drinks sesion*/
+#drinks{
+  padding: 25px 0 25px 0;
+  background-color: #E8DCC6;
+}
+#section_drinks{
+  padding: 25px 0 25px 0;
+  text-align: center;
+  font-size: 2rem;
+  font-family: verdana;
+  color: white;
+  background-color: #1c542d;
+}
+#drinks_row{
+  display: flex;
+  padding: 0 100px 0 100px;
+}
+#drinks_col{
+  box-shadow: 2px 2px 2px #bbb;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  margin: 10px;
+  padding: 10px;
+  flex: 1;
+}
+.box-drinks{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 5px;
+}
+#image img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+#image{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  padding: 5px;
+  border: 2px solid orange;
+}
 
+
+/*responsive*/
 @media screen and (max-width: 768px){
      #mobile_menu{
       display: block;
