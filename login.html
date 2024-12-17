@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login & Register</title>
   <link rel="stylesheet" href="login.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 </head>
 <body>
   <div class="wrapper">
@@ -14,15 +13,10 @@
     <form class="form login-form" action="" id="loginForm">
         <h1>Login</h1>
         <div class="input-box">
-          <input type="text" placeholder="Username" required>
+          <input type="text" placeholder="Username" required id="loginUsername">
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Password" required>
-          <i class='bx bxs-lock-alt'></i>
-        </div>
-        <div class="remember-forgot">
-          <label><input type="checkbox"> Remember me</label>
-          <a href="#">Forgot Password?</a>
+          <input type="password" placeholder="Password" required id="loginPass">
         </div>
         <button type="submit" class="btn">Login</button>
         <div class="register-link">
@@ -34,18 +28,16 @@
     <form class="form register-form" action="" style="display: none;" id="registerForm">
         <h1>Register</h1>
         <div class="input-box">
-          <input type="text" placeholder="Full Name" required>
+          <input id="registerUsername" type="text" placeholder="Username" required>
         </div>
         <div class="input-box">
-          <input type="email" placeholder="Email Address" required>
+          <input id="email" type="email" placeholder="Email Address" required>
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Password" required>
-          <i class='bx bxs-lock-alt'></i>
+          <input id="registerPass" type="password" placeholder="Password" required >
         </div>
         <div class="input-box">
-          <input type="password" placeholder="Confirm Password" required>
-          <i class='bx bxs-lock-alt'></i>
+          <input id="registerConfirmPass" type="password" placeholder="Confirm Password" required>
         </div>
         <button type="submit" class="btn">Register</button>
         <div class="register-link">
@@ -55,10 +47,10 @@
   </div>
 
   <script>
-    const loginForm = document.querySelector('.login-form');
-    const registerForm = document.querySelector('.register-form');
-    const switchToRegister = document.getElementById('switch-to-register');
-    const switchToLogin = document.getElementById('switch-to-login');
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const switchToRegister = document.getElementById("switch-to-register");
+    const switchToLogin = document.getElementById("switch-to-login");
 
     switchToRegister.addEventListener('click', (e) => {
       e.preventDefault();
@@ -74,17 +66,14 @@
     });
 
     document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("loginForm");
-    const registerForm = document.getElementById("registerForm");
-    const switchToRegister = document.getElementById("switch-to-register");
-    const switchToLogin = document.getElementById("switch-to-login");
-
+    
     function validatePassword(password) {
       const minLength = 8;
+      const maxLength = 20;
       const hasLetter = /[a-zA-Z]/.test(password);
       const hasNumber = /[0-9]/.test(password);
 
-      if (password.length < minLength) {
+      if (password.length < minLength || password.length > maxLength) {
          return false;
       }
       if (!hasLetter || !hasNumber) {
@@ -92,13 +81,14 @@
       }
       return true; 
    }
+   
 
-    // Form validation
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const username = loginForm.querySelector('input[placeholder="Username"]');
-        const password = loginForm.querySelector('input[placeholder="Password"]');
+   // Form validation
+   loginForm.addEventListener("submit", (e) => {
+     e.preventDefault();
+     
+        const username = document.getElementById("loginUsername");
+        const password = document.getElementById("loginPass");
 
         if (!username.value.trim()) {
             alert("Username is required.");
@@ -111,25 +101,22 @@
         }
 
         alert("Login successful!");
-        // Proceed with form submission logic (e.g., AJAX request)
     });
 
     registerForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+      e.preventDefault();
+        const username = document.getElementById("registerUsername");
+        const email = document.getElementById("email")
+        const password = document.getElementById("registerPass");
+        const confirmPassword = document.getElementById("registerConfirmPass");
 
-        const fullName = registerForm.querySelector('input[placeholder="Full Name"]');
-        const email = registerForm.querySelector('input[placeholder="Email Address"]');
-        const password = registerForm.querySelector('input[placeholder="Password"]');
-        const confirmPassword = registerForm.querySelector('input[placeholder="Confirm Password"]');
-
-        
-
-        if (!fullName.value.trim()) {
-            alert("Full name is required.");
+        if (!username.value.trim()) {
+            alert("Username is required.");
             return;
         }
 
-        if (!email.value.trim() || !validateEmail(email.value.trim())) {
+
+        if (!email.value.trim() ||!validateEmail(email.value.trim())) {
             alert("Valid email address is required.");
             return;
         }
@@ -144,28 +131,15 @@
             return;
         }
 
+        window.location.href = "login.html";
         alert("Registration successful!");
-        // Proceed with form submission logic (e.g., AJAX request)
     });
 
-    // Email validation helper function
     function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailRegex.test(email);
     }
 
-    // Switch between forms
-    switchToRegister.addEventListener("click", (e) => {
-        e.preventDefault();
-        loginForm.style.display = "none";
-        registerForm.style.display = "block";
-    });
-
-    switchToLogin.addEventListener("click", (e) => {
-        e.preventDefault();
-        registerForm.style.display = "none";
-        loginForm.style.display = "block";
-    });
 });
 
   </script>
