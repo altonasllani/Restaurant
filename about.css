@@ -1,257 +1,255 @@
 /* Fonts and Colors */
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
 h1, h2 {
-    font-family: 'Merriweather', serif;
-    color: #2E3D49;
+  font-family: 'Merriweather', serif;
+  color: #2E3D49;
 }
 
 /* Header */
 .header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    height: 100px;
-    background-color: #F4F3E7;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    z-index: 10;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shton nje hije per pamje me te mire */
-  }
-  
-  /* Logo ne te majte */
-  .logo img {
-    height: 80px; /* Madhesia e logos */
-  }
-  
-  /* Navigacioni ne qender */
-  .nav {
-    text-align: center;
-  }
-  
-  .nav ul {
-    display: inline-flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .nav li {
-    margin: 0 20px;
-  }
-  
-  .nav a {
-    color: #0E150E;
-    text-decoration: none;
-    font-size: 19px;
-  }
-  
-  .nav a:hover {
-    color: #1c542d;
-    transition: color 0.3s ease-in-out;
-  }
-  
-  /* Login si buton ne te djathte */
-  .login-button {
-    padding: 10px 20px;
-    background-color: #106e10;
-    color: yellow;;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 100px; /* Hapesira e moderuar nga skaji i djathte */
-    transition: background-color 0.3s, transform 0.3s;
-    cursor: pointer;
-  }
-  
-  .login-button:hover {
-    background-color: #1c542d;
-    transform: scale(1.04);
-  }
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #F4F3E7;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shton nje hije per pamje me te mire */
+}
 
-  
-/* About Section */
+/* Logo ne te majte */
+.logo img {
+  height: 80px; /* Madhesia e logos */
+}
+
+/* Navigacioni ne qender */
+.nav {
+  text-align: center;
+}
+
+.nav ul {
+  display: inline-flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav li {
+  margin: 0 20px;
+}
+
+.nav a {
+  color: #0E150E;
+  text-decoration: none;
+  font-size: 19px;
+}
+
+.nav a:hover {
+  color: #1c542d;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Login si buton ne te djathte */
+.login-button {
+  padding: 10px 20px;
+  background-color: #106e10;
+  color: yellow;;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 100px; /* Hapesira e moderuar nga skaji i djathte */
+  transition: background-color 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #1c542d;
+  transform: scale(1.04);
+}
+
 /* About Section */
 .about {
-    background-color: #F9F9F9;
-    padding: 80px 20px; /* Përdorim më shumë hapësirë për rritjen e seksionit */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  background-color: #D8E5D6;
+  padding: 80px 20px; /* Përdorim më shumë hapësirë për rritjen e seksionit */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-container {
-    max-width: 1200px;
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 100%; /* Sigurohemi që të ketë hapësirë të plotë */
+line-height: 1.6;
+
+  max-width: 1200px;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%; /* Sigurohemi që të ketë hapësirë të plotë */
 }
 
 .about-image, .about-text {
-    flex: 1 1 45%; /* Çdo seksion merr 45% të gjerësisë, duke lënë 10% për hapësirë ndërmjet tyre */
-    max-width: 600px; /* Rritur për të pasur një përmasë më të balancuar */
-    box-sizing: border-box;
+  flex: 1 1 45%; /* Çdo seksion merr 45% të gjerësisë, duke lënë 10% për hapësirë ndërmjet tyre */
+  max-width: 600px; /* Rritur për të pasur një përmasë më të balancuar */
+  box-sizing: border-box;
 }
 
 .about-image img {
-    width: 100%; /* Sigurohet që fotografia të mbushë hapësirën */
-    height: auto; /* Ruajtja e raportit të aspektit të fotos */
-    border-radius: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Sigurohet që fotografia të mbushë hapësirën */
+  height: auto; /* Ruajtja e raportit të aspektit të fotos */
+  border-radius: 10px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .about-text {
-    padding: 20px; /* Hapesirë rreth tekstit */
+  padding: 20px; /* Hapesirë rreth tekstit */
 }
 
 .about-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .about-text p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #555;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #555;
 }
 
 /* Core Values Section */
 .core-values {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #FFF;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #F4F3E7;
 }
 
 .core-values h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #333;
 }
 
 .values-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .value-box {
-    max-width: 350px; /* Madhësia më e madhe e kuti */
-    text-align: center;
-    box-sizing: border-box;
-    transition: transform 0.3s ease-in-out; /* Efekti i kalimit me butësi */
+  max-width: 350px; /* Madhësia më e madhe e kuti */
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease-in-out; /* Efekti i kalimit me butësi */
 }
 
 .value-box img {
-    width: 250px; /* Madhësia e fotove */
-    height: 250px;
-    margin-bottom: 20px;
-    border-radius: 50%; /* Bëni fotot rrethore */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hije për fotot */
-    transition: transform 0.3s ease-in-out; /* Efekti i kalimit me butësi */
+  width: 250px; /* Madhësia e fotove */
+  height: 250px;
+  margin-bottom: 20px;
+  border-radius: 50%; /* Bëni fotot rrethore */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hije për fotot */
+  transition: transform 0.3s ease-in-out; /* Efekti i kalimit me butësi */
 }
 
 .value-box img:hover {
-    transform: scale(1.15); /* Efekti i rritjes për fotot kur kaloni kursorin */
+  transform: scale(1.15); /* Efekti i rritjes për fotot kur kaloni kursorin */
 }
 
 .value-box h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #2E3D49;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #2E3D49;
 }
 
 .value-box p {
-    font-size: 1.1rem;
-    color: #666;
+  font-size: 1.1rem;
+  color: #666;
 }
 
 /* Footer Section */
 footer {
-    background-color: #D8E5D6;
-    color: #0E150E;
-    padding: 20px;
-    text-align: center;
-  }
-  
+  background-color: #D8E5D6;
+  color: #0E150E;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer .box-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer .box {
+  flex: 1 1 250px;
+  padding: 20px;
+}
+
+.footer h3 {
+  font-size: 20px;
+  color: #ff6347;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.footer ul, .footer ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer li {
+  margin: 5px 0;
+}
+
+.footer a {
+  color: #0E150E;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: aqua;
+}
+
+/* Per ekranet e vogla */
+@media (max-width: 768px) {
   .footer .box-container {
-    display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav li {
+    margin: 10px 0;
+  }
+
+  .header {
     flex-wrap: wrap;
-    max-width: 1200px;
-    margin: 0 auto;
+    height: auto;
+    padding: 10px 20px;
   }
-  
-  .footer .box {
-    flex: 1 1 250px;
-    padding: 20px;
+
+  .login-button {
+    margin-right: 10px; /* Pak me afer per ekranet e vogla */
   }
-  
-  .footer h3 {
-    font-size: 20px;
-    color: #ff6347;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-  }
-  
-  .footer ul, .footer ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .footer li {
-    margin: 5px 0;
-  }
-  
-  .footer a {
-    color: #0E150E;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
-  }
-  
-  .footer a:hover {
-    color: aqua;
-  }
-  
-  /* Per ekranet e vogla */
-  @media (max-width: 768px) {
-    .footer .box-container {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .nav ul {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .nav li {
-      margin: 10px 0;
-    }
-  
-    .header {
-      flex-wrap: wrap;
-      height: auto;
-      padding: 10px 20px;
-    }
-  
-    .login-button {
-      margin-right: 10px; /* Pak me afer per ekranet e vogla */
-    }
-  }
-  
+}
