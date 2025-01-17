@@ -21,8 +21,7 @@ h1, h2 {
 }
 
 .about-container {
-line-height: 1.6;
-
+  line-height: 1.6;
   max-width: 1200px;
   display: flex;
   gap: 40px;
@@ -32,6 +31,7 @@ line-height: 1.6;
 }
 
 .about-image, .about-text {
+  
   flex: 1 1 45%; /* Çdo seksion merr 45% të gjerësisë, duke lënë 10% për hapësirë ndërmjet tyre */
   max-width: 600px; /* Rritur për të pasur një përmasë më të balancuar */
   box-sizing: border-box;
@@ -111,60 +111,12 @@ line-height: 1.6;
   color: #666;
 }
 
-/* Footer Section */
-footer {
-  background-color: #D8E5D6;
-  color: #0E150E;
-  padding: 20px;
-  text-align: center;
-}
-
-.footer .box-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.footer .box {
-  flex: 1 1 250px;
-  padding: 20px;
-}
-
-.footer h3 {
-  font-size: 20px;
-  color: #ff6347;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.footer ul, .footer ol {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer li {
-  margin: 5px 0;
-}
-
-.footer a {
-  color: #0E150E;
-  text-decoration: none;
-  font-size: 16px;
-  transition: color 0.3s;
-}
-
-.footer a:hover {
-  color: aqua;
-}
-
-/* Per ekranet e vogla */
-@media (max-width: 768px) {
-  .footer .box-container {
+@media (max-width: 974px) {
+  .about-container{
+    padding-top: 50px;
+    box-sizing: border-box;
     flex-direction: column;
-    align-items: center;
+    display: flex;
   }
 
 }
