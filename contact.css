@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color:#F4F3E7;
+  }
+
+
+@media (max-width: 300px) {
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden; /* Fsheh çdo hapësirë jashtë ekranit horizontal */
+}
+  
+* {
+    box-sizing: border-box; /* Përcakton që padding/border të mos dalin jashtë */
+    margin: 0;
+    padding: 0;
+}
+}
