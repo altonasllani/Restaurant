@@ -97,7 +97,7 @@ body.no-scroll {
 
 
 /* Mobile Responsive Menu */
-@media (max-width: 796px) {
+@media (max-width: 815px) {
     #nav {
         position: fixed;
         top: -100%; /* Fillon jashtë ekranit lart */
@@ -191,7 +191,7 @@ body.no-scroll {
 }
 
 /* Large Screens */
-@media (min-width: 797px) {
+@media (min-width: 815px) {
     .nav {
         position: static;
         transform: none;
@@ -222,4 +222,13 @@ body.no-scroll {
         font-size: 1rem;
         margin: 0;
     }
+}
+@media (max-width: 865px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+    }
+    
 }
