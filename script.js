@@ -29,3 +29,43 @@ closeMenu.addEventListener('click', () => {
   Nav.classList.remove('active');
   document.body.classList.remove('no-scroll'); // Heq klasën për ndalimin e scroll-it
 });
+
+
+// slider //
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+let slideInterval;
+
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+    });
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// Auto-play slider function with a 6000ms interval
+function startAutoPlay() {
+    slideInterval = setInterval(nextSlide, 10000);
+}
+
+// Add click event to dots
+dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        currentSlide = i;
+        showSlide(currentSlide);
+        
+        // Clear previous interval and restart auto-play after 6000ms
+        clearInterval(slideInterval);
+        startAutoPlay();
+    });
+});
+
+// Start the auto-play when the page loads
+startAutoPlay();
+

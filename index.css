@@ -5,56 +5,107 @@ body {
   background-color:#F4F3E7;
 }
 
-/* Hero */
+/* Hero-slider*/
 .hero {
-  background-image: url('img/green1.jpg'); /* Vendosni nje imazh te pershtatshem */
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
   position: relative;
+  height: 100vh;
   color: #fff;
   display: flex;
-  align-items: flex-end; /* Per t'u shfaqur ne fund te seksionit */
-  justify-content: flex-start; /* Per t'u shfaqur ne krahun e majte */
-  padding: 10px; /* Hapesire me e madhe nga skajet */
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
 }
 
 .hero-content {
-  max-width: 600px; /* Zgjerimi i gjersise per tekst me te gjate */
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
   padding: 40px;
 }
 
 .hero h1 {
-  font-size: 3rem; /* Tekst me i madh */
+  font-size: 3rem;
   margin: 0 0 15px;
   font-weight: bold;
-  line-height: 1.3; /* Hapesira ndermjet rreshtave */
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Hijet per tekst me te dukshem */
+  line-height: 1.3;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .hero p {
-  font-size: 1.5rem; /* Peremase me e madhe */
+  font-size: 1.5rem;
   margin: 10px 0;
-  line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
+  line-height: 1.5;
 }
 
 .order-button {
   display: inline-block;
   margin-top: 20px;
-  padding: 10px 45px; /* Buton me i madh per terheqje me te mire */
+  padding: 10px 45px;
   font-size: 1.2rem;
-  color: rgba(0, 128, 0, 0.8); /* Shkronja te gjelberta transparente */
-  background-color: rgb(231, 231, 75);; /* Ngjyre e verdhe per butonin */
+  color: rgba(0, 128, 0, 0.8);
+  background-color: rgb(231, 231, 75);
   text-decoration: none;
-  border-radius: 20px; /* Cepa pak me te rrumbullaket */
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Efekt hijeje */
+  border-radius: 20px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
   transition: background-color 0.3s, transform 0.2s;
 }
 
 .order-button:hover {
-  background-color: #f6d465; /* Ndryshim i lehte ngjyre ne hover */
-  transform: scale(1.08); /* Zmadhim me i dukshem gjate hover-it */
+  background-color: #f6d465;
+  transform: scale(1.08);
 }
+
+/* Dots-slider*/
+.dots {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 13px;
+  z-index: 1;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #fff;
+}
+
+
 /* App Section */
 .app {
   display: flex;
@@ -305,6 +356,7 @@ background-color: #D8E5D6;
     margin: 10px 0;
     line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
   }
+
   
 
   .flex{
@@ -324,6 +376,52 @@ background-color: #D8E5D6;
 
 
 }
+
+/* responisive for dots */
+@media (max-width: 391px) {
+  .dots {
+    position: absolute;
+    bottom: 40px;
+    left: 55%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 13px;
+    z-index: 1;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  @media (max-width: 320px) {
+    .dots {
+      position: absolute;
+      bottom: 40px;
+      left: 60%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 13px;
+      z-index: 1;
+    }
+    
+    .dot {
+      width: 10px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+
+}
+
+
+/* responsive for small devices */
+
 @media (max-width: 300px) {
   html, body {
     margin: 0;
