@@ -37,7 +37,7 @@ body {
 
 }
 .contact-inputs{
-  width: 400px;
+  width: 350px;
   height: 50px;
   border: none;
   outline: none;
@@ -69,4 +69,42 @@ body {
   background: linear-gradient(270deg, #ff994f, #fa6d86);
   cursor: pointer;
 }
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
+  .contact-left-title h2 {
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .contact-left-title hr {
+    margin: 0 auto 20px;
+  }
+
+  .contact-left {
+    align-items: center;
+  }
+
+  .contact-inputs {
+    max-width: 100%;
+  }
+
+  .contact-left textarea {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-left-title h2 {
+    font-size: 24px;
+  }
+
+  .contact-left button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
