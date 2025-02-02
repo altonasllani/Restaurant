@@ -27,10 +27,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['userId'], $_POST['rol
     }
 
     $stmt->close();
-    exit(); // Ndalo ekzekutimin e mëtejshëm të skedarit
+    exit();
 }
 
-// Trajto fshirjen e përdoruesit nëse ka një kërkesë GET me parametrin 'delete'
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['delete'])) {
     $userId = intval($_GET['delete']);
 
@@ -44,10 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['delete'])) {
     }
 
     $stmt->close();
-    exit(); // Ndalo ekzekutimin e mëtejshëm të skedarit
+    exit();
 }
-
-// Marrja e të dhënave të përdoruesve
 $result = $conn->query("SELECT * FROM users");
 ?>
 
@@ -59,7 +56,6 @@ $result = $conn->query("SELECT * FROM users");
     <title>Manage Users</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Stilizimi i tabelës dhe butonave */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -203,10 +199,8 @@ $result = $conn->query("SELECT * FROM users");
                         <td><?= htmlspecialchars($row['Email']) ?></td>
                         <td><?= htmlspecialchars($row['Role']) ?></td>
                         <td>
-                            <!-- Edit Button -->
                             <button class="btn btn-edit" onclick="showModal(<?= htmlspecialchars($row['UserID']) ?>, '<?= htmlspecialchars($row['Role']) ?>')">Edit</button>
 
-                            <!-- Delete Button -->
                             <button class="btn btn-delete" onclick="deleteUser(<?= htmlspecialchars($row['UserID']) ?>)">Delete</button>
                         </td>
                     </tr>
@@ -215,7 +209,6 @@ $result = $conn->query("SELECT * FROM users");
         </table>
     </div>
 
-    <!-- Modal for Editing -->
     <div class="modal" id="editModal">
         <div class="modal-content">
             <h3>Edit Role</h3>
@@ -231,18 +224,15 @@ $result = $conn->query("SELECT * FROM users");
         </div>
     </div>
 
-    <!-- Elementi për mesazhin -->
     <div id="message"></div>
 
     <script>
-        // Funksioni për të shfaqur mesazhin
         function showMessage(message, isSuccess = true) {
             const messageDiv = document.getElementById('message');
             messageDiv.textContent = message;
-            messageDiv.className = isSuccess ? 'success' : 'error'; // Shto klasën e duhur
+            messageDiv.className = isSuccess ? 'success' : 'error'; 
             messageDiv.style.display = 'block';
 
-            // Fshih mesazhin pas 3 sekondash
             setTimeout(() => {
                 messageDiv.style.display = 'none';
             }, 3000);

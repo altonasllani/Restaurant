@@ -10,7 +10,7 @@ footer {
 }
 
 footer .box {
-  flex: 1 1 300px; /* Fleksibilitet për shfaqje dinamike */
+  flex: 1 1 300px;
   margin: 10px;
   max-width: 300px;
 }
@@ -44,7 +44,7 @@ footer .box ul li a {
 footer .box ul li a:hover {
   color: #3498db;
 }
-/* Pjesa për copyright */
+
 .footer-bottom {
   width: 100%;
   text-align: center;
