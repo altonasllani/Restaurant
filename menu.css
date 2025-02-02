@@ -38,6 +38,7 @@ body {
   line-height: 1.5;
   font-family: cursive;
 }
+
 /* Menu Section */
 #menu {
   padding: 25px 0;
@@ -104,49 +105,8 @@ body {
   transition: transform 0.3s ease-in-out;
 }
 
-/* Drinks Section */
-#drinks {
-  padding: 25px 0;
-}
-
-#section_drinks {
-  padding: 25px 0;
-  text-align: center;
-  font-size: 2rem;
-  font-family: verdana;
-  color: white;
-  background-color: #1c542d;
-}
-
-#drinks_row {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 30px;
-}
-
-#drinks_col {
-  box-shadow: 2px 2px 2px #bbb;
-  border: 1px solid #bbb;
-  background-color: #E8DCC6;
-  margin: 10px;
-  padding: 10px;
-  flex: 1 1 300px; 
-}
-
-.box-drinks {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: 5px;
-}
-.box-drinks :hover {
-  transform: scale(1.06);
-  transition: transform 0.3s ease-in-out;
-}
-
 @media (max-width: 768px) { 
-  #menu_row, #drinks_row {
+  #menu_row {
     padding: 0 10px;
   }
 }
