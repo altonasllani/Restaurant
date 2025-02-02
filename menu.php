@@ -35,7 +35,7 @@
                 .then(response => response.json())
                 .then(data => {
                     const menuRow = document.getElementById("menu_row");
-                    // Krijo një objekt për të grupuar artikujt sipas kategorive
+                  
                     const categories = {};
 
                     data.forEach(item => {
@@ -45,7 +45,7 @@
                         categories[item.Category].push(item);
                     });
 
-                    // Krijo strukturën për secilën kategori
+                  
                     for (const category in categories) {
                         const categoryHtml = `
                             <div id="menu_col">

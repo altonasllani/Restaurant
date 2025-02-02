@@ -1,7 +1,6 @@
 <?php
-// Kontrollo nëse sesioni është startuar tashmë
 if (session_status() === PHP_SESSION_NONE) {
-    session_start(); // Starto sesionin vetëm nëse nuk është startuar tashmë
+    session_start(); 
 }
 include("db_connect.php");
 $db = new DataBaza();
@@ -28,14 +27,12 @@ if (isset($_GET['action']) && $_GET['action'] == 'getMenuItems') {
     exit;
 }
 
-// Shtimi i një artikulli të ri
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['addMenuItem'])) {
     $name = $_POST['name'];
     $description = $_POST['description'];
     $price = floatval($_POST['price']);
     $category = $_POST['category'];
     
-    // Kontrollo nëse një imazh është ngarkuar
     $imagePath = null;
     if (!empty($_FILES['file']['name'])) {
         $targetDir = "uploads/";
@@ -45,10 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['addMenuItem'])) {
         }
     }
 
-    // Futja e të dhënave në databazë
     $stmt = $conn->prepare("INSERT INTO Menu (Name, Description, Price, Category, ImageID) VALUES (?, ?, ?, ?, ?)");
     
-    // Shto një rresht të ri në tabelën Images nëse kemi një imazh
     $imageID = null;
     if ($imagePath) {
         $stmtImg = $conn->prepare("INSERT INTO Images (ImagePath) VALUES (?)");
@@ -70,7 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['addMenuItem'])) {
     $stmt->close();
 }
 
-// Fshirja e artikullit
 if (isset($_GET['delete'])) {
     $menuItemID = intval($_GET['delete']);
     $stmt = $conn->prepare("DELETE FROM Menu WHERE MenuItemID = ?");
@@ -82,7 +76,6 @@ if (isset($_GET['delete'])) {
     }
 }
 
-// Përditësimi i artikullit
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updateMenuItem'])) {
     $menuItemID = intval($_POST['editId']);
     $name = $_POST['name'];
@@ -99,7 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['updateMenuItem'])) {
     }
 }
 
-// Marrja e artikujve nga databaza për shfaqje
 $result = $conn->query("SELECT m.MenuItemID, m.Name, m.Description, m.Price, m.Category, i.ImagePath 
                         FROM Menu m 
                         LEFT JOIN Images i ON m.ImageID = i.ImageID");
@@ -113,14 +105,14 @@ $result = $conn->query("SELECT m.MenuItemID, m.Name, m.Description, m.Price, m.C
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="dashboard.css">
     <style>
-        /* Stilizimi i tabelës dhe modalit */
+
         table {
-            width: 80%; /* Redukto gjerësinë e tabelës */
+            width: 80%;
             border-collapse: collapse;
-            margin: 20px auto; /* Qendro tabelën në mes */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shto hije për një pamje më të mirë */
-            border-radius: 10px; /* Rrumbullakos qoshet */
-            overflow: hidden; /* Fshi qoshet e jashtme të rrumbullakosura */
+            margin: 20px auto; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px; 
+            overflow: hidden; 
         }
         th, td {
             padding: 10px;
@@ -135,15 +127,15 @@ $result = $conn->query("SELECT m.MenuItemID, m.Name, m.Description, m.Price, m.C
             background-color: #f1f1f1;
         }
         .btn {
-            padding: 8px 12px; /* Rrit padding për butonat */
+            padding: 8px 12px; 
             text-decoration: none;
             color: white;
             border-radius: 5px;
-            font-size: 14px; /* Rrit madhësinë e shkronjave */
+            font-size: 14px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin: 5px; /* Shtoj hapësirë midis butonave */
-            display: inline-block; /* Siguro që butonat të jenë në të njëjtën linjë */
+            margin: 5px;
+            display: inline-block;
         }
         .btn-delete {
             background-color: #e74c3c;
@@ -230,7 +222,7 @@ $result = $conn->query("SELECT m.MenuItemID, m.Name, m.Description, m.Price, m.C
             background: #219150;
         }
 
-        /* Qendrimi i butonit "Add New Item" në mes */
+   
         .add-button-container {
             text-align: center;
             margin: 20px 0;
@@ -238,13 +230,13 @@ $result = $conn->query("SELECT m.MenuItemID, m.Name, m.Description, m.Price, m.C
         .toggle-button {
             background-color: #3498db;
             color: white;
-            padding: 15px; /* Rrit padding për ta bërë më të madh */
+            padding: 15px; 
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 18px; /* Rrit madhësinë e shkronjave */
-            width: 100%; /* Butoni të zërë të gjithë gjerësinë */
-            margin: 20px 0; /* Shtoj hapësirë midis butonave */
+            font-size: 18px; 
+            width: 100%; 
+            margin: 20px 0;
             transition: background-color 0.3s ease;
         }
         .toggle-button:hover {
@@ -257,27 +249,27 @@ $result = $conn->query("SELECT m.MenuItemID, m.Name, m.Description, m.Price, m.C
         /* Responsive Design për tabelën kryesore */
         @media (max-width: 768px) {
             table {
-                width: 100%; /* Tabela të zërë të gjithë gjerësinë */
-                box-shadow: none; /* Hiq hijezimin për një pamje më të pastër */
+                width: 100%; 
+                box-shadow: none; 
             }
 
             th, td {
-                display: block; /* Bëji elementet të shfaqen si blloqe */
-                width: 100%; /* Zë të gjithë gjerësinë */
-                text-align: right; /* Vendos tekstin në të djathtë */
+                display: block; 
+                width: 100%;
+                text-align: right; 
                 padding: 8px;
                 box-sizing: border-box;
             }
 
             th {
-                text-align: center; /* Qendro titullin e kolonave */
+                text-align: center; 
                 background-color: #343a40;
                 color: white;
             }
 
             td::before {
-                content: attr(data-label); /* Shfaq etiketën e kolonës para vlerës */
-                float: left; /* Vendos etiketën në të majtë */
+                content: attr(data-label); 
+                float: left; 
                 font-weight: bold;
                 text-transform: uppercase;
             }
@@ -287,60 +279,60 @@ $result = $conn->query("SELECT m.MenuItemID, m.Name, m.Description, m.Price, m.C
             }
 
             tr {
-                margin-bottom: 10px; /* Shtoj hapësirë midis rreshtave */
+                margin-bottom: 10px; 
                 display: block;
-                border: 1px solid #ddd; /* Shto një kornizë për çdo rresht */
-                border-radius: 5px; /* Rrumbullakos qoshet */
+                border: 1px solid #ddd; 
+                border-radius: 5px; 
             }
 
             .actions {
-                text-align: right; /* Vendos butonat në anën e djathtë */
+                text-align: right; 
             }
 
             .btn {
-                display: inline-block; /* Shfaq butonat në një rresht */
-                margin: 5px; /* Shtoj hapësirë midis butonave */
+                display: inline-block; 
+                margin: 5px; 
             }
 
             td img {
-                width: 100%; /* Imazhi të zërë të gjithë gjerësinë e qelizës */
-                height: auto; /* Ruaj raportin e aspektit */
-                max-width: 100px; /* Vendos një maksimum për madhësinë */
+                width: 100%; 
+                height: auto; 
+                max-width: 100px; 
             }
         }
 
         /* Responsive Design për modalin "Add New Menu Item" dhe "Edit Menu Item" */
         @media (max-width: 768px) {
             .modal-content {
-                width: 90%; /* Modali të zërë 90% të gjerësisë së ekranit */
-                margin: 10% auto; /* Qendro modalin */
-                padding: 15px; /* Rrit padding për ta bërë më të lexueshëm */
+                width: 90%; 
+                margin: 10% auto;
+                padding: 15px; 
             }
 
             .form-group input,
             .form-group textarea,
             .form-group select {
-                width: 100%; /* Fushat e formës të zënë të gjithë gjerësinë */
-                padding: 10px; /* Rrit padding për ta bërë më të lehtë për t'u prekur */
-                font-size: 16px; /* Rrit madhësinë e shkronjave */
+                width: 100%;
+                padding: 10px;
+                font-size: 16px;
             }
 
             .form-group textarea {
-                height: 100px; /* Rrit lartësinë e textarea për më shumë hapësirë */
+                height: 100px; 
             }
 
             .form-group button {
-                width: 100%; /* Butoni të zërë të gjithë gjerësinë */
-                padding: 12px; /* Rrit padding për ta bërë më të madh */
-                font-size: 16px; /* Rrit madhësinë e shkronjave */
+                width: 100%; 
+                padding: 12px; 
+                font-size: 16px;
             }
 
             .form-group label {
-                font-size: 16px; /* Rrit madhësinë e shkronjave për etiketat */
+                font-size: 16px; 
             }
 
             .close {
-                font-size: 24px; /* Rrit madhësinë e ikonës së mbylljes */
+                font-size: 24px; 
             }
         }
     </style>
@@ -375,12 +367,10 @@ $result = $conn->query("SELECT m.MenuItemID, m.Name, m.Description, m.Price, m.C
     <?php include("dashboard.php"); ?>
     <div class="main-content">
         <div class="container">
-            <!-- Butoni për të hapur modalën e "Add New Item" -->
             <div class="add-button-container">
                 <button class="toggle-button" onclick="openAddModal()">Add New Item</button>
             </div>
 
-            <!-- Seksioni i listës së artikujve -->
             <div class="list-section">
                 <h2>List of Menu Items</h2>
                 <table>

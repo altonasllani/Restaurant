@@ -2,7 +2,6 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Stili i pergjithshem*/
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -32,7 +31,7 @@ body {
   padding: 25px 0 25px 0;
 }
 .hero p {
-  font-size: 2.5rem; /* Tekst me i madh */
+  font-size: 2.5rem; 
   text-align: center;
   font-weight: normal;
   line-height: 1.5;
@@ -76,7 +75,6 @@ body {
   padding: 5px;
   font-family: cursive;
 }
-/*ndyshimi i codit te perbashket ne menu dhe drinks tek pjesa e image*/
 #image {
   width: 150px;
   height: 150px;
