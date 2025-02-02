@@ -45,11 +45,6 @@ $result = $conn->query("SELECT ReservationID, FullName, PhoneNumber, Reservation
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
         table {
             width: 100%;
             border-collapse: collapse;

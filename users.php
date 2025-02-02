@@ -76,12 +76,7 @@ $result = $conn->query("SELECT * FROM users");
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        h1 {
-            text-align: center;
-            color: #333;
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
+       
 
         table {
             width: 100%;

@@ -1,5 +1,6 @@
 // Funksioni për tejdukshmërinë e header-it gjatë scroll-it
 window.addEventListener('scroll', function () {
+
   // Kontrollon nëse menuja është aktive
   const isMenuActive = document.body.classList.contains('no-scroll');
   if (!isMenuActive) {
@@ -49,7 +50,7 @@ function nextSlide() {
     showSlide(currentSlide);
 }
 
-// Auto-play slider function with a 6000ms interval
+// Auto-play slider function with a 10000ms interval
 function startAutoPlay() {
     slideInterval = setInterval(nextSlide, 10000);
 }
@@ -60,7 +61,7 @@ dots.forEach((dot, i) => {
         currentSlide = i;
         showSlide(currentSlide);
         
-        // Clear previous interval and restart auto-play after 6000ms
+        // Clear previous interval and restart auto-play after 10000ms
         clearInterval(slideInterval);
         startAutoPlay();
     });
