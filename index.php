@@ -37,7 +37,7 @@ session_start();
                 <h1>Welcome to the Heart of Flavors</h1>
                 <p>Discover freshly crafted meals made with love.</p>
                 <p>Where every bite tells a story of taste and tradition.</p>
-                <a href="menu.html" class="order-button">Order Now</a>
+                <a href="menu.php" class="order-button">Book Now</a>
             </div>
             <div class="dots">
                 <span class="dot active"></span>

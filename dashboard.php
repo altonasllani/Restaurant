@@ -34,7 +34,6 @@ class Dashboard {
         echo '<li><a href="rStats.php"><i class="fas fa-calendar-check"></i> Reservations</a></li>';
         echo '<li><a href="menuitem.php"><i class="fas fa-utensils"></i> Menu</a></li>';
         echo '<li><a href="messages.php"><i class="fas fa-envelope"></i> Messages</a></li>';
-        echo '<li><a href="images.php"><i class="fas fa-images"></i> Images</a></li>';
         echo '</ul>';
         echo '</nav>';
     
@@ -54,7 +53,6 @@ class Dashboard {
             "Reservations" => "SELECT COUNT(*) as count FROM reservations",
             "Menu Items" => "SELECT COUNT(*) as count FROM menu",
             "Messages" => "SELECT COUNT(*) as count FROM contactmessages",
-            "Images" => "SELECT COUNT(*) as count FROM images"
         ];
 
         $cardsData = [];
@@ -101,8 +99,6 @@ class Dashboard {
                 return 'utensils';
             case 'Messages':
                 return 'envelope';
-            case 'Images':
-                return 'images';
             default:
                 return 'chart-line';
         }
