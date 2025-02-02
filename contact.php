@@ -1,47 +1,44 @@
 <?php
-// Aktivizo raportimin e gabimeve për të identifikuar problemet
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Përfshi skedarin për lidhjen me bazën e të dhënave
 include("db_connect.php");
 
-// Krijo një instancë të klasës DataBaza dhe krijo lidhjen me bazën e të dhënave
 $db = new DataBaza();
 $conn = $db->getConnection();
 
-// Kontrollo nëse ka gabime në lidhjen me bazën e të dhënave
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Kontrollo nëse forma është dërguar me metodën POST
+$show_message = false; // Kontrollon nëse duhet të shfaqet mesazhi
+$message_type = ""; // Lloji i mesazhit (sukses ose gabim)
+$message_text = ""; // Teksti i mesazhit
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Merr të dhënat nga forma
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $message = $_POST['messsage']; // Sigurohu që emri i fushës të jetë i saktë
+    $message = $_POST['messsage']; 
 
-    // Përgatit query-n SQL për të futur të dhënat në tabelën contactmessages
     $sql = "INSERT INTO contactmessages (FullName, Email, Message) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
 
-    // Kontrollo nëse query-ja është përgatitur me sukses
     if ($stmt === false) {
         die("Error preparing statement: " . $conn->error);
     }
 
-    // Lidh parametrat me query-n
     $stmt->bind_param("sss", $name, $email, $message);
 
-    // Ekzekuto query-n dhe shfaq mesazhin e duhur
     if ($stmt->execute()) {
-        echo "<p style='color: green; text-align: center;'>Message sent successfully!</p>";
+        $show_message = true;
+        $message_type = "success";
+        $message_text = "Message sent successfully!";
     } else {
-        echo "<p style='color: red; text-align: center;'>Error: " . $stmt->error . "</p>";
+        $show_message = true;
+        $message_type = "error";
+        $message_text = "Error: " . $stmt->error;
     }
 
-    // Mbyll statement-in
     $stmt->close();
 }
 
@@ -60,11 +57,51 @@ $conn->close();
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="footer.css">  
     <script defer src="script.js"></script>
+    <style>
+        /* Stilizimi i mesazhit */
+        .message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            z-index: 1000;
+            color: white;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            background-color: red;
+        }
+    </style>
+    <script>
+        // Funksioni për të fshehur mesazhin pas 3 sekondash
+        function hideMessage() {
+            var messageElement = document.getElementById('message');
+            if (messageElement) {
+                setTimeout(function() {
+                    messageElement.style.display = 'none';
+                }, 3000); // 3000 milisekonda = 3 sekonda
+            }
+        }
+
+        // Thirr funksionin kur faqja të ngarkohet
+        window.onload = hideMessage;
+    </script>
 </head>
 <body>
 <?php include('header.php') ?>
 
     <main>
+        <?php if ($show_message): ?>
+            <div id="message" class="message <?php echo $message_type; ?>">
+                <?php echo $message_text; ?>
+            </div>
+        <?php endif; ?>
+
         <div class="contact-container">
             <form action="" method="POST" class="contact-left">
                 <div class="contact-left-title">

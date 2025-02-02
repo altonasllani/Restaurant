@@ -1,42 +1,37 @@
 <?php
-// Aktivizo raportimin e gabimeve
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Përfshi skedarin për lidhjen me bazën e të dhënave
 include("db_connect.php");
 
-// Krijo një instancë të klasës DataBaza dhe krijo lidhjen me bazën e të dhënave
 $db = new DataBaza();
 $conn = $db->getConnection();
 
-// Kontrollo nëse ka gabime në lidhjen me bazën e të dhënave
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-}
-
-// Variabël për të kontrolluar nëse duhet të shfaqet mesazhi
-$show_message = false;
-
-// Funksioni për të fshirë një mesazh
-if (isset($_GET['delete_id'])) {
-    $delete_id = $_GET['delete_id'];
-    $sql = "DELETE FROM contactmessages WHERE MessageID = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $delete_id);
-    if ($stmt->execute()) {
-        $show_message = true; // Shfaq mesazhin pasi të jetë fshirë mesazhi
-    } else {
-        echo "<p style='color: red; text-align: center;'>Error deleting message: " . $stmt->error . "</p>";
-    }
-    $stmt->close();
 }
 
 // Merr të gjitha mesazhet nga tabela contactmessages
 $sql = "SELECT * FROM contactmessages ORDER BY CreatedAt DESC";
 $result = $conn->query($sql);
 
-// Mbyll lidhjen me bazën e të dhënave
+// Trajtimi i fshirjes së mesazheve
+if (isset($_GET['delete'])) {
+    $messageId = intval($_GET['delete']);
+    $stmt = $conn->prepare("DELETE FROM contactmessages WHERE MessageID = ?");
+    $stmt->bind_param("i", $messageId);
+    if ($stmt->execute()) {
+        echo json_encode(['success' => true]);
+        exit;
+    } else {
+        echo json_encode(['success' => false, 'error' => $stmt->error]);
+        exit;
+    }
+}
+
 $conn->close();
 ?>
 <!DOCTYPE html>
@@ -47,7 +42,7 @@ $conn->close();
     <title>Messages</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Stilizimi specifik për faqen e mesazheve */
+        /* Stilizimi i mëparshëm i tabelës dhe elementeve */
         .messages-container {
             padding: 20px;
             max-width: 900px;
@@ -55,12 +50,12 @@ $conn->close();
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow-x: auto; /* Lejon rrëshqitjen horizontale nëse është e nevojshme */
+            overflow-x: auto;
         }
 
         .messages-container h1 {
             text-align: center;
-            color: #333; 
+            color: #333;
         }
 
         .messages-container table {
@@ -73,7 +68,7 @@ $conn->close();
         .messages-container table td {
             border: 1px solid #ddd;
             padding: 10px;
-            text-align: right; /* Vendos të gjithë tekstin në të djathtë */
+            text-align: right;
         }
 
         .messages-container table th {
@@ -86,11 +81,11 @@ $conn->close();
         }
 
         .messages-container .btn {
-            padding: 4px 6px; 
+            padding: 4px 6px;
             text-decoration: none;
             color: white;
-            border-radius: 2px; 
-            font-size: 11px; 
+            border-radius: 2px;
+            font-size: 11px;
             cursor: pointer;
             transition: background-color 0.3s ease;
             display: inline-block;
@@ -139,7 +134,7 @@ $conn->close();
                 border-bottom: 1px solid #eee;
                 position: relative;
                 padding-left: 50%;
-                text-align: right; 
+                text-align: right;
             }
 
             .messages-container td:before {
@@ -151,7 +146,7 @@ $conn->close();
                 white-space: nowrap;
                 content: attr(data-label);
                 font-weight: bold;
-                text-align: left; 
+                text-align: left;
             }
 
             .messages-container .btn {
@@ -160,6 +155,26 @@ $conn->close();
                 font-size: 15px;
             }
         }
+
+        .alert {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            text-align: center;
+            color: white;
+            background-color: green;
+            position: relative;
+        }
+
+        .alert .close {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+        }
     </style>
 </head>
 <body>
@@ -167,11 +182,10 @@ $conn->close();
 
     <div class="messages-container">
         <h1>Messages from Contact Form</h1>
-        <?php
-        if ($show_message) {
-            echo "<p style='color: green; text-align: center;'>Message deleted successfully!</p>";
-        }
-        ?>
+        <div id="message-alert" style="display: none;" class="alert">
+            <span id="alert-message"></span>
+            <span class="close" onclick="hideMessage()">&times;</span>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -183,18 +197,18 @@ $conn->close();
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="messages-table-body">
                 <?php
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
-                        echo "<tr>
+                        echo "<tr id='message-" . htmlspecialchars($row['MessageID']) . "'>
                                 <td data-label='ID'>" . htmlspecialchars($row['MessageID']) . "</td>
                                 <td data-label='Name'>" . htmlspecialchars($row['FullName']) . "</td>
                                 <td data-label='Email'>" . htmlspecialchars($row['Email']) . "</td>
                                 <td data-label='Message'>" . htmlspecialchars($row['Message']) . "</td>
                                 <td data-label='Date'>" . htmlspecialchars($row['CreatedAt']) . "</td>
                                 <td data-label='Actions'>
-                                    <a href='dashboard_messages.php?delete_id=" . htmlspecialchars($row['MessageID']) . "' class='btn btn-delete' onclick='return confirm(\"Are you sure you want to delete this message?\")'>Delete</a>
+                                    <button onclick='deleteMessage(" . htmlspecialchars($row['MessageID']) . ")' class='btn btn-delete'>Delete</button>
                                 </td>
                               </tr>";
                     }
@@ -205,5 +219,36 @@ $conn->close();
             </tbody>
         </table>
     </div>
+
+    <script>
+        // Funksioni për të fshirë mesazhin duke përdorur AJAX
+        function deleteMessage(messageId) {
+            if (confirm("Are you sure you want to delete this message?")) {
+                fetch(`messages.php?delete=${messageId}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Fshi rreshtin nga tabela
+                            document.getElementById(`message-${messageId}`).remove();
+                            // Shfaq mesazhin e suksesit
+                            document.getElementById('alert-message').innerText = "Message deleted successfully!";
+                            document.getElementById('message-alert').style.display = 'block';
+                            // Fshi mesazhin pas 3 sekondash
+                            setTimeout(() => {
+                                document.getElementById('message-alert').style.display = 'none';
+                            }, 3000);
+                        } else {
+                            alert("Error deleting message: " + data.error);
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        }
+
+        // Funksioni për të fshehur mesazhin manualisht
+        function hideMessage() {
+            document.getElementById('message-alert').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
