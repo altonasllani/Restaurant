@@ -47,7 +47,8 @@ $conn->close();
     <title>Messages</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .container {
+        /* Stilizimi specifik për faqen e mesazheve */
+        .messages-container {
             padding: 20px;
             max-width: 900px;
             margin: 40px auto;
@@ -57,82 +58,91 @@ $conn->close();
             overflow-x: auto; /* Lejon rrëshqitjen horizontale nëse është e nevojshme */
         }
 
-        h1 {
+        .messages-container h1 {
             text-align: center;
+            color: #333; 
         }
 
-        table {
+        .messages-container table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
 
-        table th, table td {
+        .messages-container table th,
+        .messages-container table td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: right; /* Vendos të gjithë tekstin në të djathtë */
         }
 
-        table th {
+        .messages-container table th {
             background-color: #f4f4f4;
             color: #555;
         }
 
-        table tr:nth-child(even) {
+        .messages-container table tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        .btn {
-            padding: 4px 6px; /* Edhe më i vogël */
+
+        .messages-container .btn {
+            padding: 4px 6px; 
             text-decoration: none;
             color: white;
-            border-radius: 2px; /* Edhe më i vogël */
-            font-size: 11px; /* Edhe më i vogël */
+            border-radius: 2px; 
+            font-size: 11px; 
             cursor: pointer;
             transition: background-color 0.3s ease;
             display: inline-block;
         }
 
-        .btn-delete {
+        .messages-container .btn-delete {
             border: none;
             color: red;
             font-weight: bold;
-            font-size: 20px
+            font-size: 20px;
         }
 
-        .btn:hover {
-             opacity: 0.9;
+        .messages-container .btn:hover {
+            opacity: 0.9;
         }
+
         /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
+            .messages-container {
                 padding: 10px;
             }
 
-            table, thead, tbody, th, td, tr {
+            .messages-container table,
+            .messages-container thead,
+            .messages-container tbody,
+            .messages-container th,
+            .messages-container td,
+            .messages-container tr {
                 display: block;
             }
 
-            thead tr {
+            .messages-container thead tr {
                 position: absolute;
                 top: -9999px;
                 left: -9999px;
             }
 
-            tr {
+            .messages-container tr {
                 border: 1px solid #ccc;
                 margin-bottom: 10px;
                 padding: 10px;
             }
 
-            td {
+            .messages-container td {
                 border: none;
                 border-bottom: 1px solid #eee;
                 position: relative;
-                padding-left: 50%; /* Vendos hapësirë për të dhënat e kërkuara (labels) */
-                text-align: right; /* Vendos të dhënat e shënuara (vlerat) në të djathtë */
+                padding-left: 50%;
+                text-align: right; 
             }
 
-            td:before {
+            .messages-container td:before {
                 position: absolute;
                 top: 10px;
                 left: 10px;
@@ -141,26 +151,21 @@ $conn->close();
                 white-space: nowrap;
                 content: attr(data-label);
                 font-weight: bold;
-                text-align: left; /* Vendos të dhënat e kërkuara (labels) në të majtë */
+                text-align: left; 
             }
 
-            .btn {
+            .messages-container .btn {
                 display: block;
                 margin: 5px auto;
                 font-size: 15px;
-            }
-
-            h1 {
-                font-size: 24px;
             }
         }
     </style>
 </head>
 <body>
-    
     <?php include("dashboard.php"); ?>
 
-    <div class="container">
+    <div class="messages-container">
         <h1>Messages from Contact Form</h1>
         <?php
         if ($show_message) {
