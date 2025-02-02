@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2025 at 07:13 AM
+-- Generation Time: Feb 02, 2025 at 10:57 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `contactmessages` (
 --
 
 INSERT INTO `contactmessages` (`MessageID`, `FullName`, `Email`, `Message`, `CreatedAt`) VALUES
-(13, 'albin', 'albinzena2004@gmail.com', 'pershendetje', '2025-02-01 22:23:04');
+(13, 'albin', 'albinzena2004@gmail.com', 'pershendetje', '2025-02-01 22:23:04'),
+(30, 'albin', 'albinzena2004@gmail.com', 'the food was amazing and very nice', '2025-02-02 20:16:59');
 
 -- --------------------------------------------------------
 
@@ -61,12 +62,8 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`ImageID`, `ImagePath`, `PageSection`, `UploadedBy`, `UploadedAt`) VALUES
-(1, 'uploads/breakfast.jpg', 'menu', NULL, '2025-01-30 01:59:24'),
-(2, 'uploads/breakfast.jpg', 'menu', NULL, '2025-01-30 02:01:53'),
 (4, 'uploads/breakfast.jpg', 'menu', NULL, '2025-01-30 04:53:12'),
-(5, 'uploads/breakfast1.jpg', 'menu', NULL, '2025-01-30 04:54:13'),
 (6, 'uploads/breakfast1.jpg', 'menu', NULL, '2025-01-30 04:54:41'),
-(7, 'uploads/breakfast2.jpg', 'menu', NULL, '2025-01-30 04:55:29'),
 (8, 'uploads/breakfast2.jpg', 'menu', NULL, '2025-01-30 04:56:36'),
 (9, 'uploads/breakfast3.jpg', 'menu', NULL, '2025-01-30 04:57:32'),
 (10, 'uploads/Lunch1.jpg', 'menu', NULL, '2025-01-30 04:58:42'),
@@ -75,28 +72,19 @@ INSERT INTO `images` (`ImageID`, `ImagePath`, `PageSection`, `UploadedBy`, `Uplo
 (13, 'uploads/lunch4.jpg', 'menu', NULL, '2025-01-30 05:01:55'),
 (14, 'uploads/dinner1.jpg', 'menu', NULL, '2025-01-30 05:02:53'),
 (15, 'uploads/dinner2.jpg', 'menu', NULL, '2025-01-30 05:03:37'),
-(16, 'uploads/dinner3.jpg', 'menu', NULL, '2025-01-30 05:07:50'),
-(17, 'uploads/dinner4.jpg', 'menu', NULL, '2025-01-30 05:09:20'),
-(21, 'uploads/drink3.jpg', 'index', NULL, '2025-01-31 16:34:10'),
-(22, 'uploads/drink3.jpg', 'index', NULL, '2025-01-31 16:36:40'),
 (23, 'uploads/dinner3.jpg', 'index', NULL, '2025-01-31 20:32:04'),
 (24, 'uploads/dinner4.jpg', 'index', NULL, '2025-01-31 20:33:28'),
-(25, 'uploads/drink1.jpg', 'index', NULL, '2025-01-31 20:34:40'),
-(26, 'uploads/drink2.jpg', 'index', NULL, '2025-01-31 20:35:51'),
 (28, 'uploads/drink1.jpg', 'index', NULL, '2025-02-02 04:14:08'),
-(29, 'uploads/drink2.jpg', 'index', NULL, '2025-02-02 04:14:43'),
+(29, 'uploads/drink2.jpg', 'menu', NULL, '2025-02-02 04:14:43'),
 (30, 'uploads/drink3.jpg', 'index', NULL, '2025-02-02 04:15:45'),
 (31, 'uploads/drink4.jpg', 'index', NULL, '2025-02-02 04:17:01'),
-(32, 'uploads/drink5.jpg', 'index', NULL, '2025-02-02 04:18:02'),
 (33, 'uploads/drink14.jpg', 'index', NULL, '2025-02-02 04:30:41'),
 (34, 'uploads/drink18.jpg', 'index', NULL, '2025-02-02 04:47:35'),
 (35, 'uploads/drink15.jpg', 'index', NULL, '2025-02-02 04:48:32'),
 (36, 'uploads/drink7.jpg', 'index', NULL, '2025-02-02 04:49:22'),
 (37, 'uploads/drink16.jpg', 'index', NULL, '2025-02-02 04:50:07'),
 (38, 'uploads/drink9.jpg', 'index', NULL, '2025-02-02 04:52:39'),
-(39, 'uploads/drink10.jpg', 'index', NULL, '2025-02-02 04:53:44'),
 (40, 'uploads/drink12.jpg', 'index', NULL, '2025-02-02 04:54:53'),
-(41, 'uploads/drink6.jpg', 'index', NULL, '2025-02-02 04:55:40'),
 (42, 'uploads/drink17.jpg', 'index', NULL, '2025-02-02 05:52:52'),
 (43, 'uploads/dessert1.jpg', 'index', NULL, '2025-02-02 05:59:14'),
 (44, 'uploads/dessert2.jpeg', 'index', NULL, '2025-02-02 06:01:58'),
@@ -125,7 +113,7 @@ CREATE TABLE `menu` (
 
 INSERT INTO `menu` (`MenuItemID`, `Name`, `Description`, `Price`, `Category`, `ImageID`, `CreatedAt`) VALUES
 (4, 'The classic Omlette', 'Delicious omlette with fresh ingredients.', 6.30, 'Breakfast', 4, '2025-01-30 04:53:12'),
-(6, 'Light Food with Coffee', 'Perfect light meal with coffee', 5.70, 'Breakfast', 6, '2025-01-30 04:54:41'),
+(6, 'Light Food with Coffee', 'Perfect light meal with coffee.', 5.70, 'Breakfast', 6, '2025-01-30 04:54:41'),
 (8, 'Best Combination for Breakfast', 'The best way to start your day', 7.00, 'Breakfast', 8, '2025-01-30 04:56:36'),
 (9, 'Eggs, Bread and Pancakes', 'Classic breakfast combo', 9.00, 'Breakfast', 9, '2025-01-30 04:57:32'),
 (10, 'Homemade Hamburgers', 'Juicy burger with crispy fries', 8.00, 'Lunch', 10, '2025-01-30 04:58:42'),
@@ -176,7 +164,8 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`ReservationID`, `UserID`, `FullName`, `PhoneNumber`, `ReservationDate`, `ReservationTime`, `Guests`, `TablePreference`, `CreatedAt`) VALUES
-(2, 2, 'albin', '12323252336', '2025-02-11', '07:54:00', 5, 'indoor', '2025-02-02 03:54:32');
+(6, 3, 'altoni', '049123456789', '2025-02-20', '22:59:00', 4, 'outdoor', '2025-02-02 21:55:31'),
+(7, 3, 'albin', '044368709453', '2025-02-05', '22:58:00', 5, 'window', '2025-02-02 21:55:40');
 
 -- --------------------------------------------------------
 
@@ -198,8 +187,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`UserID`, `Username`, `Password`, `Email`, `Role`, `CreatedAt`) VALUES
-(1, 'albin', '$2y$10$y8avPDTNNojoYF.anyuyQeTOU.uBe08LytrMgRUeY39.fyIsHHMwC', 'albinzena@gmail.com', 'admin', '2025-02-02 02:24:39'),
-(2, 'albin1', '$2y$10$UGPFFne.Toyf3Ryb3zkr6.SCCE6f4QQ2eE.Jao2ZEifHVcWtD8Dqu', 'albinzena1@gmail.com', 'user', '2025-02-02 03:53:51');
+(3, 'user', '$2y$10$wCBmF22tfjFE3v8oxhqCYuURrGnf5qq7PjZMjeO2cp1iAPec91I.y', 'user@gmail.com', 'user', '2025-02-02 21:50:44'),
+(4, 'admin', '$2y$10$WfQlVz7FlbDNleleqgamr.U5O/LIwd2rNE4RZg8sEG1ICErF7Zyxi', 'admin@gmail.com', 'admin', '2025-02-02 21:51:38');
 
 --
 -- Indexes for dumped tables
@@ -248,31 +237,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contactmessages`
 --
 ALTER TABLE `contactmessages`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `ImageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `ImageID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `MenuItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `MenuItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
