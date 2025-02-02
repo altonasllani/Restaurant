@@ -39,7 +39,6 @@ $result = $conn->query($sql);
 // Mbyll lidhjen me bazën e të dhënave
 $conn->close();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +47,6 @@ $conn->close();
     <title>Messages</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-
         .container {
             padding: 20px;
             max-width: 900px;
@@ -56,6 +54,7 @@ $conn->close();
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-x: auto; /* Lejon rrëshqitjen horizontale nëse është e nevojshme */
         }
 
         h1 {
@@ -71,7 +70,7 @@ $conn->close();
         table th, table td {
             border: 1px solid #ddd;
             padding: 10px;
-            text-align: center;
+            text-align: right; /* Vendos të gjithë tekstin në të djathtë */
         }
 
         table th {
@@ -82,23 +81,78 @@ $conn->close();
         table tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-
         .btn {
-            padding: 8px 12px;
+            padding: 4px 6px; /* Edhe më i vogël */
             text-decoration: none;
             color: white;
-            border-radius: 5px;
-            font-size: 14px;
+            border-radius: 2px; /* Edhe më i vogël */
+            font-size: 11px; /* Edhe më i vogël */
             cursor: pointer;
             transition: background-color 0.3s ease;
+            display: inline-block;
         }
 
         .btn-delete {
-            background-color: #e74c3c;
+            border: none;
+            color: red;
+            font-weight: bold;
+            font-size: 20px
         }
 
         .btn:hover {
-            opacity: 0.9;
+             opacity: 0.9;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #ccc;
+                margin-bottom: 10px;
+                padding: 10px;
+            }
+
+            td {
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%; /* Vendos hapësirë për të dhënat e kërkuara (labels) */
+                text-align: right; /* Vendos të dhënat e shënuara (vlerat) në të djathtë */
+            }
+
+            td:before {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+                font-weight: bold;
+                text-align: left; /* Vendos të dhënat e kërkuara (labels) në të majtë */
+            }
+
+            .btn {
+                display: block;
+                margin: 5px auto;
+                font-size: 15px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -109,7 +163,6 @@ $conn->close();
     <div class="container">
         <h1>Messages from Contact Form</h1>
         <?php
-        // Shfaq mesazhin vetëm nëse është bërë një fshirje
         if ($show_message) {
             echo "<p style='color: green; text-align: center;'>Message deleted successfully!</p>";
         }
@@ -130,12 +183,12 @@ $conn->close();
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         echo "<tr>
-                                <td>" . htmlspecialchars($row['MessageID']) . "</td>
-                                <td>" . htmlspecialchars($row['FullName']) . "</td>
-                                <td>" . htmlspecialchars($row['Email']) . "</td>
-                                <td>" . htmlspecialchars($row['Message']) . "</td>
-                                <td>" . htmlspecialchars($row['CreatedAt']) . "</td>
-                                <td>
+                                <td data-label='ID'>" . htmlspecialchars($row['MessageID']) . "</td>
+                                <td data-label='Name'>" . htmlspecialchars($row['FullName']) . "</td>
+                                <td data-label='Email'>" . htmlspecialchars($row['Email']) . "</td>
+                                <td data-label='Message'>" . htmlspecialchars($row['Message']) . "</td>
+                                <td data-label='Date'>" . htmlspecialchars($row['CreatedAt']) . "</td>
+                                <td data-label='Actions'>
                                     <a href='dashboard_messages.php?delete_id=" . htmlspecialchars($row['MessageID']) . "' class='btn btn-delete' onclick='return confirm(\"Are you sure you want to delete this message?\")'>Delete</a>
                                 </td>
                               </tr>";
