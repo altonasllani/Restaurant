@@ -43,6 +43,35 @@ p {
   margin-bottom: 30px;
 }
 
+/* Stilizimi i mesazhit të suksesit */
+        .message {
+            display: none;
+            position: fixed;
+            top: 80px; /* Vendosur pak poshtë header-it */
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            border-radius: 10px;
+            color: white;
+            background-color: #4CAF50; /* Ngjyra e suksesit */
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; top: 60px; }
+            to { opacity: 1; top: 80px; }
+        }
+
+        @keyframes fadeOut {
+            from { opacity: 1; top: 80px; }
+            to { opacity: 0; top: 60px; }
+        }
+
 /* Seksioni i formes */
 #reservation {
   max-width: 600px;
