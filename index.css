@@ -2,9 +2,36 @@
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background-color:#F4F3E7;
+  background-color: #F4F3E7;
 }
 
+.message {
+  display: none;
+  position: fixed;
+  top: 100px; 
+  left: 50%;
+  transform: translateX(-50%); 
+  padding: 15px 30px;
+  border-radius: 10px;
+  color: white;
+  background-color: #4CAF50; 
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; top: 80px; }
+  to { opacity: 1; top: 100px; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; top: 100px; }
+  to { opacity: 0; top: 80px; }
+}
 /* Hero-slider*/
 .hero {
   position: relative;
@@ -105,7 +132,6 @@ body {
   background-color: #fff;
 }
 
-
 /* App Section */
 .app {
   display: flex;
@@ -125,26 +151,26 @@ body {
 .text-section h2 {
   font-size: 3rem;
   margin-bottom: 20px;
-  text-transform: uppercase; /* Të gjitha shkronjat janë të mëdha */
+  text-transform: uppercase; 
   font-family: Garamond, serif;
-  
 }
 
 .text-section p {
   font-size: 1.5rem;
   line-height: 1.5;
 }
-.stitle{
-  font-size: 12px; /* Madhësia e vogël për tekstin ndihmës */
-  color: #6e6e6e; /* Një ngjyrë gri e lehtë për tekstin ndihmës */
-  text-transform: uppercase; /* Të gjitha shkronjat janë të mëdha */
-  letter-spacing: 1px; /* Hapësirë midis shkronjave */
+
+.stitle {
+  font-size: 12px; 
+  color: #6e6e6e; 
+  text-transform: uppercase;
+  letter-spacing: 1px; 
   margin-top: 20px;
-  margin-bottom: 30px; /* Hapësirë poshtë subtitullit */
+  margin-bottom: 30px; 
 }
 
 .btn {
-  align-self: flex-start; /* Vendosja në të majtë */
+  align-self: flex-start; 
   margin-top: 20px;
 }
 
@@ -152,7 +178,7 @@ body {
   font-size: 1.2rem;
   color: #09140c;
   text-decoration: none;
-  border-bottom: 2px solid #1c542d; /* Vijë poshtë */
+  border-bottom: 2px solid #1c542d; 
   padding-bottom: 2px;
   transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
@@ -175,51 +201,57 @@ body {
   height: auto;
   border-radius: 10px;
 }
+
 /*app section*/
-.flex{
+.flex {
   display: flex;
   background-color: #E8DCC6;
 }
 
 .texti {
-  flex: 1; /* Seksioni i tekstit zë gjysmën e ekranit */
+  flex: 1; 
   height: 100vh;
   position: relative;
   color: #000000;
   display: flex;
-  align-items: flex-start; /* Per t'u shfaqur ne fillim te seksionit */
-  justify-content: flex-start; /* Per t'u shfaqur ne krahun e majte */
-  padding: 10px; /* Hapesire me e madhe nga skajet */
+  align-items: flex-start; 
+  justify-content: flex-start; 
+  padding: 10px; 
 }
+
 .subtitle {
-  font-size: 12px; /* Madhësia e vogël për tekstin ndihmës */
-  color: #6e6e6e; /* Një ngjyrë gri e lehtë për tekstin ndihmës */
-  text-transform: uppercase; /* Të gjitha shkronjat janë të mëdha */
-  letter-spacing: 1px; /* Hapësirë midis shkronjave */
+  font-size: 12px; 
+  color: #6e6e6e; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
   margin-left: 30px;
   margin-top: 40px;
-  margin-bottom: 40px; /* Hapësirë poshtë subtitullit */
+  margin-bottom: 40px; 
 }
+
 .texti h2 {
-  font-size: 4em; /* Madhësia kryesore e titullit */
-  margin:  20px ; /* Hapësirë poshtë titullit */
+  font-size: 4em; 
+  margin: 20px; 
   font-family: Garamond, serif;
 }
-.flex p{
-  font-size: 1.5rem; /* Permase me e madhe */
-  margin: 20px ;
-  line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
+
+.flex p {
+  font-size: 1.5rem; 
+  margin: 20px;
+  line-height: 1.5; 
 }
+
 .video-section {
-  flex: 1; /* Seksioni i videos zë gjysmën tjetër të ekranit */
-  background-color: #E8DCC6; /* Ngjyrë gri për sfondin e videos */
-  overflow: hidden; /* Siguron që videoja të mos dalë jashtë kufijve */
-  display: flex; /* Videoja qendrohet brenda */
+  flex: 1; 
+  background-color: #E8DCC6;
+  overflow: hidden;
+  display: flex;
 }
+
 .video-section video {
-  width: 100%; /* Video mbush gjithë gjerësinë e seksionit */
-  height: 100%; /* Video mbush gjithë lartësinë e seksionit */
-  object-fit: cover; /* Video mbulon seksionin pa shtrembërime */
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
 }
 
 /* Reviews-section */
@@ -232,8 +264,8 @@ body {
 .testimonials h2 {
   font-family: Garamond, serif;
   font-size: 2.5rem;
-  font-weight:bolder;
-  color: #3c3c3c; /* Ngjyrë neutrale */
+  font-weight: bolder;
+  color: #3c3c3c; 
   margin-bottom: 20px;
 }
 
@@ -265,16 +297,15 @@ body {
   font-style: italic;
   color: #666;
 }
+
 .testimonial:hover {
-background-color: #D8E5D6;
+  background-color: #D8E5D6;
 }
 
-
-
-/* Responsive Adjustments for Smaller Screens */
+/* Responsive*/
 @media (max-width: 1024px) {
   .hero h1 {
-    font-size: 2.5rem; 
+    font-size: 2.5rem;
   }
 
   .hero p {
@@ -286,43 +317,46 @@ background-color: #D8E5D6;
     padding: 10px 30px;
   }
 
-  .text-section h2, .texti h2 {
-    font-size: 2.5rem; /* Adjust title sizes */
+  .text-section h2,
+  .texti h2 {
+    font-size: 2.5rem; 
   }
 
-  .text-section p, .flex p {
-    font-size: 1.2rem; /* Smaller font */
+  .text-section p,
+  .flex p {
+    font-size: 1.2rem; 
   }
 
   .app {
-    flex-direction: row; 
+    flex-direction: row;
     display: flex;
   }
 
-  .app-img, .text-section {
+  .app-img,
+  .text-section {
     height: auto;
     padding: 20px;
   }
 
   .flex {
-    flex-direction: column; 
+    flex-direction: column;
   }
 
-  .texti, .video-section {
+  .texti,
+  .video-section {
     max-width: 100;
     height: auto;
     padding: 20px;
   }
 
   .video-section video {
-    height: 300px; /* Adjust video height */
+    height: 300px; 
   }
 }
 
 @media (max-width: 768px) {
-  
   .hero {
-    height: 70vh; /* Lartësia për pajisje të mëdha */
+    height: 70vh; 
   }
 
   .hero-content {
@@ -330,13 +364,13 @@ background-color: #D8E5D6;
   }
 
   .testimonial {
-    width: 100%; /* Full width for testimonials */
+    width: 100%; 
   }
 }
 
 @media (max-width: 680px) {
   .hero {
-    height: 70vh; /* Lartësia për pajisje të mëdha */
+    height: 70vh; 
   }
 
   .hero-content {
@@ -344,37 +378,33 @@ background-color: #D8E5D6;
   }
 
   .hero h1 {
-    font-size: 2rem; /* Tekst me i madh */
+    font-size: 2rem; 
     margin: 0 110 20px;
     font-weight: bold;
-    line-height: 1.3; /* Hapesira ndermjet rreshtave */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Hijet per tekst me te dukshem */
+    line-height: 1.3; 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
   }
-  
+
   .hero p {
-    font-size: 1em; /* Peremase me e madhe */
+    font-size: 1em; 
     margin: 10px 0;
-    line-height: 1.5; /* Hapesire me e rehatshme ndermjet rreshtave */
+    line-height: 1.5; 
   }
 
-  
-
-  .flex{
-    
+  .flex {
     flex-direction: column;
   }
-  
+
   .app {
-    flex-direction: column; /* Stack app section */
+    flex-direction: column; 
     display: flex;
   }
 
-  .app-img, .text-section {
+  .app-img,
+  .text-section {
     height: auto;
     padding: 20px;
   }
-
-
 }
 
 /* responisive for dots */
@@ -388,7 +418,7 @@ background-color: #D8E5D6;
     gap: 13px;
     z-index: 1;
   }
-  
+
   .dot {
     width: 10px;
     height: 10px;
@@ -397,49 +427,47 @@ background-color: #D8E5D6;
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  @media (max-width: 320px) {
-    .dots {
-      position: absolute;
-      bottom: 40px;
-      left: 60%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 13px;
-      z-index: 1;
-    }
-    
-    .dot {
-      width: 10px;
-      height: 10px;
-      background-color: rgba(255, 255, 255, 0.5);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s;
+}
+
+@media (max-width: 320px) {
+  .dots {
+    position: absolute;
+    bottom: 40px;
+    left: 60%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 13px;
+    z-index: 1;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
   }
 }
 
-}
-
-
 /* responsive for small devices */
-
 @media (max-width: 300px) {
-  html, body {
+  html,
+  body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden; /* Fsheh çdo hapësirë jashtë ekranit horizontal */
+    overflow-x: hidden;
   }
 
   * {
-    box-sizing: border-box; /* Përcakton që padding/border të mos dalin jashtë */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
 
-  
   .hero {
-    height: 70vh; /* Lartësia për pajisje të mëdha */
+    height: 70vh;
   }
 
   .hero-content {
@@ -447,22 +475,16 @@ background-color: #D8E5D6;
   }
 
   .hero h1 {
-    font-size: 1.5rem; /* Tekst me i madh */
+    font-size: 1.5rem; 
     margin: 0 110 20px;
     font-weight: bold;
-    line-height: 1.3; 
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Hijet per tekst me te dukshem */
+    line-height: 1.3;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); 
   }
-  
+
   .hero p {
     font-size: 1rem;
     margin: 10px 0;
-    line-height: 1.5; 
+    line-height: 1.5;
   }
- 
-
 }
-
-
-
-

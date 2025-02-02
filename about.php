@@ -12,36 +12,8 @@
     <link rel="stylesheet" href="footer.css">
 </head>
 <body>
-    <!-- Header -->
-     <header class="header">
-        <div class="container">
-            <!-- Logo -->
-            <div class="logo">
-                <h2><a href="index.html">Restaurant</a></h2>
-            </div>
-            
-            <!-- Menu Toggle Button for Mobile -->
-            <div class="toggle-button" id="toggle-menu">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+<?php include('header.php') ?>
 
-            <!-- Navigation -->
-            <nav class="nav" id="nav">
-                <button class="close-button" id="close-menu">&times;</button>
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="menu.html" class="nav-link">Menu</a></li>
-                    <li><a href="reservations.html" class="nav-link">Reservations</a></li>
-                    <li><a href="about.html" class="nav-link">About</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                    <li><a href="login.html" class="login-button">Login</a></li>
-                </ul>
-            </nav>
-            
-        </div>
-    </header>
 
     <!-- About Section -->
     <section class="about" id="about">
