@@ -1,15 +1,16 @@
 <?php
     echo 
     '
-        <footer>
+       <footer>
         <div class="box">
             <h3>Quick Links</h3>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="Reservations.html">Reservations</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="login.html">Login/Register</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="menu.php">Menu</a></li>
+                <li><a href="Reservations.php">Reservations</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+                <li><a href="login.php">Login/Register</a></li>
             </ul>
         </div>
         <div class="box">
@@ -30,10 +31,8 @@
             </ul>
         </div>
         <div class="footer-bottom">
-            <p>© 2025, Të gjitha të drejtat e rezervuara | Made with ❤️ in Prishtinë</p>
+            <p>© 2025, All rights reserved | Made with ❤ in Prishtinë</p>
         </div>
     </footer>
     '
 ?>
-
-
